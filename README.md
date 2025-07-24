@@ -16,7 +16,8 @@ I suggest using `uv` because it is light and fast:
   ```
   curl -LsSf https://astral.sh/uv/install.sh | env INSTALLER_NO_MODIFY_PATH=1 sh
   ```
-    You can add this to your default `$PATH` or just invoke it directly.
+
+You can add `~/.local/bin` to your default `$PATH` or just use the full path directly.
   
   * Install python
   ```
