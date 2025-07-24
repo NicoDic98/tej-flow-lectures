@@ -1,3 +1,10 @@
+This repository contains materials for lectures on
+**Normalizing Flows for Lattice Gauge Theory**
+delivered at
+_Frontiers and Challenges in Lattice Gauge Theory_, July 28 - August 1, 2025.
+
+![flow sampling cartoon](./figs/flow_direct_sampling.jpg)
+
 # Getting started
 I suggest first setting up a local environment for developing code. You may
 later want to upload your code to [Google Colab](https://colab.research.google.com)
