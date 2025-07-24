@@ -3,7 +3,7 @@ I suggest first setting up a local environment for developing code. You may
 later want to upload your code to [Google Colab](https://colab.research.google.com)
 to try running with a GPU.
 
-### Install Python
+### 1. Install Python
 We will require Python >= 3.9.
 
 > [!note]
@@ -27,7 +27,7 @@ You can add `~/.local/bin` to your default `$PATH` or just use the full path dir
 Other options include `conda` or directly installing from a package manager or
 [python.org](http://python.org).
 
-### Install packages
+### 2. Install packages
 It is convenient to sandbox in a local directory using a virtual environment.
 
 > [!warning]
