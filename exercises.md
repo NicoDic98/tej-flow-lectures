@@ -1,0 +1,45 @@
+# Overview
+These exercises go alongside the code developed during the lectures. They will
+for the most part involve exploring or extending that work, as well as answering
+some related questions.
+
+I have intentionally included **too many** exercises for the available tutorial
+time. The idea is that you can choose what you find the most interesting or
+useful during tutorials. The additional questions can provide a starting point
+for your own future exploration if you like.
+
+# Exercise set 1
+## Warm-up
+  * Show that the ESS is related to the variance $\sigma^2 = \mathrm{Var}[w]$ and mean $M = \langle w \rangle$ according to
+    $$\mathrm{ESS} = \frac{M^2}{\sigma^2 + M^2}$$
+  * Use this form to show that the useless model limit corresponds to $\mathrm{ESS} = 0$ and the perfect model limit corresponds to $\mathrm{ESS} = 1$.
+  * Extra: Assuming $p(U)$ is normalized in the definition $w(U) = p(U)/q(U)$, show that $\langle w \rangle = 1$.
+
+## Critical slowing down
+Using the HMC code we developed for the $\phi^4$ theory, explore critical
+slowing down and topological freezing quantitatively:
+
+  1. The _autocorrelation function_ for observable $O$ is defined by
+  $$\rho(\tau) = \frac{1}{N-\tau}\sum_{i-j = \tau} \frac{O^{(i)} O^{(j)}}{\langle O^2 \rangle}$$
+   which measures the correlation between the observable at points in the Markov chain separated by MC time $\tau$, assuming an ensemble of size $N$.
+	 * Plot the autocorrelation function for the observable $\bar{\phi} = \frac{1}{V} \sum_x \phi_x$ at the broken and symmetric phase parameters we looked at. Confirm that for the broken phase the autocorrelation function decays to zero on a much longer timescale.
+	 * In the broken phase, suppose the Markov chain tunnels between the two VEVs, $\bar{\phi} = \pm v$, according to a Poisson process with rate $r$. How should $\rho(\tau)$ scale for small $\tau$ under this assumption?
+	 * Extra: solve for $\rho(\tau)$ for all $\tau$ under this assumption.
+	 * Extra: use this to estimate the tunneling rate of our HMC sampler at the broken phase parameters we looked at.
+
+ 2. The _integrated autocorrelation time_ is defined by
+ $$\tau_{\mathrm{int}} = \frac{1}{2} + \sum_{\tau = 1}^{\infty} \rho(\tau)$$
+ and estimates the decorrelation time of the observable under MCMC. Probably Jacob will talk about this more!
+	 * Estimate $\tau_{\mathrm{int}}$ for $\bar{\phi}$ using some sensible upper limit of summation in both phases.
+	 * Extra: Measure $\tau_{\mathrm{int}}$ for $\bar{\phi}$ for a range of quartic couplings between the two phases. What features do you expect to see, and do you observe them?
+
+3. More extra stuff: Study the questions above for the free theory at various $m^2$ values, scaling the number of lattice points to hold $m L$ fixed. This is the usual form of critical slowing down. Estimate the dynamic critical exponential $z$ according to which the autocorrelation time scales as $$\tau_{int} \sim m^{-z}$$
+
+## Toy flow-based sampling
+The toy flow we built has a double-peaked structure. Suppose we _actually_ wanted to sample the mixture of Gaussians:
+ $$ p(\vec{x}) = \tfrac{1}{2} \exp(-(\vec{x} - \vec{\mu})^2/2\sigma^2) + \tfrac{1}{2} \exp(-(\vec{x} + \vec{\mu})^2/2\sigma^2) $$
+  * Implement $\log p(\vec{x})$ in terms of some fixed values $\vec{\mu}$ and $\sigma$.
+  * Plot $\log p(\vec{x})$ alongside the plot of the flow model $\log q(\vec{x})$ we produced in the lecture.
+  * Use the plot to tune $\vec{\mu}$ and $\sigma$ to approximately match the output of the flow model.
+  * Compute the reweighting factors needed to correct samples from the flow model to this target distribution. Estimate the corresponding ESS and confirm that your choice of $\vec{\mu}$ and $\sigma$ give a reasonable non-zero value.
+  * Make an unbiased estimate of $\langle \lVert x \rVert^2 \rangle_p$ using the flow samples. Check that it agrees with the true value $\sigma^2 + \lVert \mu \rVert^2$.
