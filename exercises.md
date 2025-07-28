@@ -3,6 +3,9 @@ These exercises go alongside the code developed during the lectures. They will
 for the most part involve exploring or extending that work, as well as answering
 some related questions.
 
+For help with specific numpy or Pytorch syntax and details, please feel free to ask,
+or you may find ChatGPT helpful!
+
 I have intentionally included **too many** exercises for the available tutorial
 time. The idea is that you can choose what you find the most interesting or
 useful during tutorials. The additional questions can provide a starting point
