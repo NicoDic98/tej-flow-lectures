@@ -46,5 +46,5 @@ where $x$ and $\mu$ are both 2D vectors.
   * Plot $\log p(x)$ alongside the plot of the flow model $\log q(x)$ we produced in the lecture.
   * Use the plot to tune $\mu$ and $\sigma$ to approximately match the output of the flow model.
   * Compute the reweighting factors needed to correct samples from the flow model to this target distribution. Estimate the corresponding ESS and confirm that your choice of $\mu$ and $\sigma$ give a reasonable non-zero value.
-  * Make an unbiased estimate of $\langle \lVert x \rVert^2 \rangle_p$ using the flow samples. Check that it approximately agrees with the true value $\sigma^2 + \lVert \mu \rVert^2$.
+  * Make an unbiased estimate of $\langle \lVert x \rVert^2 \rangle_p$ using the flow samples. Check that it approximately agrees with the true value $2 \sigma^2 + \lVert \mu \rVert^2$.
   * Extra: estimate the uncertainties on your estimate and check whether you find agreement within error bars. If not, what might have gone wrong? (This may be the case even if you have done everything correctly!)
