@@ -37,9 +37,10 @@ slowing down and topological freezing quantitatively:
 
 ## Toy flow-based sampling
 The toy flow we built has a double-peaked structure. Suppose we _actually_ wanted to sample the mixture of Gaussians:
- $$ p(\vec{x}) = \tfrac{1}{2} \exp(-(\vec{x} - \vec{\mu})^2/2\sigma^2) + \tfrac{1}{2} \exp(-(\vec{x} + \vec{\mu})^2/2\sigma^2) $$
-  * Implement $\log p(\vec{x})$ in terms of some fixed values $\vec{\mu}$ and $\sigma$.
-  * Plot $\log p(\vec{x})$ alongside the plot of the flow model $\log q(\vec{x})$ we produced in the lecture.
-  * Use the plot to tune $\vec{\mu}$ and $\sigma$ to approximately match the output of the flow model.
-  * Compute the reweighting factors needed to correct samples from the flow model to this target distribution. Estimate the corresponding ESS and confirm that your choice of $\vec{\mu}$ and $\sigma$ give a reasonable non-zero value.
+ $$p(x) = \tfrac{1}{2} \exp(-\lVert x - \mu \rVert^2/2\sigma^2) + \tfrac{1}{2} \exp(-\lVert x + \mu \rVert^2/2\sigma^2)$$
+where $x$ and $\mu$ are both 2D vectors.
+  * Implement $\log p(x)$ in terms of some fixed values $\mu$ and $\sigma$.
+  * Plot $\log p(x)$ alongside the plot of the flow model $\log q(x)$ we produced in the lecture.
+  * Use the plot to tune $\mu$ and $\sigma$ to approximately match the output of the flow model.
+  * Compute the reweighting factors needed to correct samples from the flow model to this target distribution. Estimate the corresponding ESS and confirm that your choice of $\mu$ and $\sigma$ give a reasonable non-zero value.
   * Make an unbiased estimate of $\langle \lVert x \rVert^2 \rangle_p$ using the flow samples. Check that it agrees with the true value $\sigma^2 + \lVert \mu \rVert^2$.
