@@ -31,8 +31,11 @@ You can add `~/.local/bin` to your default `$PATH` or just use the full path dir
   uv python install 3.13
   ```
 
-Other options include `conda` or directly installing from a package manager or
-[python.org](http://python.org).
+Python commands can now be run with `python3.13 ...`, but we will shortly set up
+a virtual environment which will alias this to just `python` (see below). Other
+options to install python include `conda` or directly installing from a package
+manager or [python.org](http://python.org). I will also provide the non-uv
+commands below.
 
 ### 2. Install packages
 It is convenient to sandbox in a local directory using a virtual environment.
@@ -43,16 +46,18 @@ It is convenient to sandbox in a local directory using a virtual environment.
   
   * Create the virtual environment
   ```
-  python -m venv ./venv
+  uv venv ./venv
+  # OR: python -m venv ./venv
   ```
 
   * Activate and install into the virtual environment
   ```
   source ./venv/bin/activate
-  python -m pip install -r requirements.txt
+  uv pip install -r requirements.txt
+  # OR: python -m pip install -r requirements.txt
   ```
 
-  * Confirm that you now have Pytorch
+  * Activate and confirm that you now have Pytorch
   ```
   python -c 'import torch; print(torch.version.__version__)'
   ```
