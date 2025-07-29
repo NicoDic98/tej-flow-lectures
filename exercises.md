@@ -48,3 +48,17 @@ where $x$ and $\mu$ are both 2D vectors.
   * Compute the reweighting factors needed to correct samples from the flow model to this target distribution. Estimate the corresponding ESS and confirm that your choice of $\mu$ and $\sigma$ give a reasonable non-zero value.
   * Make an unbiased estimate of $\langle \lVert x \rVert^2 \rangle_p$ using the flow samples. Check that it approximately agrees with the true value $2 \sigma^2 + \lVert \mu \rVert^2$.
   * Extra: estimate the uncertainties on your estimate and check whether you find agreement within error bars. If not, what might have gone wrong? (This may be the case even if you have done everything correctly!)
+
+
+# Exercise set 2
+## Warm-up
+Recall that the forward and reverse KL divergence are defined respectively by
+ $$D_{KL}(p || q) = \int dU p(U) [\log{p}(U) - \log{q}(U)] \geq 0$$
+ $$D_{KL}(q || p) = \int dU q(U) [\log{q}(U) - \log{q}(U)] \geq 0$$.
+  * If $p(U) = e^{-S(U)}/Z$ is the target distribution, expand the $\log{p}$
+    term in each case and extract an additive constant $\pm \log{Z}$, which
+    does not affect the gradient (for example, when using these
+    divergences as loss functions).
+  * Show that the expectation value of the _unnormalized_ reweighting factors
+    $w(U) = e^{-S(U)}/q(U)$ is the partition function, $$\mathbb{E}_{q}[w] = Z$$.
+
