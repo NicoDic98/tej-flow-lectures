@@ -62,3 +62,20 @@ Recall that the forward and reverse KL divergence are defined respectively by
   * Show that the expectation value of the _unnormalized_ reweighting factors
     $w(U) = e^{-S(U)}/q(U)$ is the partition function, $$\mathbb{E}_{q}[w] = Z$$.
 
+## Neural network fits
+We fitted the $\mathrm{sinc}(x)$ function using a simple neural network (NN).
+  * Improve the quality of the fit by varying the network size, training time,
+    and choice of sampled distribution for training data.
+  * Extra: Use a NN to fit an interesting function in 4D. For example, you might
+    choose the 1-loop Euclidean integrand
+    $$f(q) = (q^2 + m^2)^{-1} ((q-p)^2 + m^2)^{-1}$$
+    using an arbitrary fixed external momentum $p$.
+
+## Toy learned flow
+We used the reverse KL divergence to learn the Gaussian mixture distribution,
+which suffers from "mode-collapse" (overfitting to specific peaks).
+  * Train the same flow using the forward KL divergence. You should observe the
+    "mode-covering" behavior of the flow in this case.
+  * Extra: Improve the quality of the fitted model by varying the model size,
+    training time, and/or training strategy.
+
