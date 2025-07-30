@@ -54,7 +54,7 @@ where $x$ and $\mu$ are both 2D vectors.
 ## Warm-up
 Recall that the forward and reverse KL divergence are defined respectively by
  $$D_{KL}(p || q) = \int dU p(U) [\log{p}(U) - \log{q}(U)] \geq 0$$
- $$D_{KL}(q || p) = \int dU q(U) [\log{q}(U) - \log{q}(U)] \geq 0$$.
+ $$D_{KL}(q || p) = \int dU q(U) [\log{q}(U) - \log{p}(U)] \geq 0$$.
   * If $p(U) = e^{-S(U)}/Z$ is the target distribution, expand the $\log{p}$
     term in each case and extract an additive constant $\pm \log{Z}$, which
     does not affect the gradient (for example, when using these
