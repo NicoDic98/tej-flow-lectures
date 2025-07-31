@@ -79,3 +79,22 @@ which suffers from "mode-collapse" (overfitting to specific peaks).
   * Extra: Improve the quality of the fitted model by varying the model size,
     training time, and/or training strategy.
 
+
+# Exercise set 3
+## Warm-up
+  * Prove that an invariant prior density $r$ combined with an equivariant flow
+    results in an invariant model density $q$ (hint: use the change of measure
+    formula).
+  * A conditional flow model for pseudofermions gives a conditional model
+    density $q(\phi | U)$. Argue that a good conditional flow
+    ($\mathrm{ESS} \sim 1$) gives a good estimate of $\det(D^\dagger D(U))$.
+
+## Learned flow for phi4 theory
+Our flow model gave a reasonable sampler for the $L=4$ theory, but was not fully
+effective at capturing the two broken symmetry vacua (for example the ESS was only
+about 50%).
+  * Try to improve these $L=4$ results by vary model size, training time, and/or
+    training approach (e.g. try implementing forward KL training).
+  * Insert HMC updates between each flow transformation. Careful: make sure to
+    compute the reweighting factors using the samples _before_ this update, and
+    use the correct target theory for the HMC steps.
