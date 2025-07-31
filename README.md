@@ -74,8 +74,10 @@ source ./venv/bin/activate
 juypter-lab
 ```
 
-Completed versions of the lecture notebooks are available, but I suggest
-following along in an empty notebook to get more familiar with the demos.
+Completed versions of the lecture notebooks are available with/without exercise
+solutions (LectureX.ipynb and LectureXSolutions.ipynb), but I suggest
+following along starting from LectureXSkeleton.ipynb to get more familiar with
+the developed code.
 
 Most of the exercises involve some small coding tasks. Think of them as a
 starting point for your own exploration.
