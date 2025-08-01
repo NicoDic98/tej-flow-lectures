@@ -98,3 +98,9 @@ about 50%).
   * Insert HMC updates between each flow transformation. Careful: make sure to
     compute the reweighting factors using the samples _before_ this update, and
     use the correct target theory for the HMC steps.
+  * Run the flow sampler for the $L=8$ theory.
+  * Compare the ESS in the $L=8$ theory vs $L=4$. Crudely, one expects this to
+    scale as $\mathrm{ESS}_{L=8} = (\mathrm{ESS}_{L=4})^{2 \times 2}$. Does this
+    hold in this case?
+  * Using that scaling, what ESS for $L=4$ would be needed to ensure
+    $$\mathrm{ESS}_{L=64} \gtrsim 0.5$$?
