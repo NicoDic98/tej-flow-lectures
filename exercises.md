@@ -95,12 +95,20 @@ effective at capturing the two broken symmetry vacua (for example the ESS was on
 about 50%).
   * Try to improve these $L=4$ results by vary model size, training time, and/or
     training approach (e.g. try implementing forward KL training).
-  * Insert HMC updates between each flow transformation. Careful: make sure to
-    compute the reweighting factors using the samples _before_ this update, and
-    use the correct target theory for the HMC steps.
   * Run the flow sampler for the $L=8$ theory.
   * Compare the ESS in the $L=8$ theory vs $L=4$. Crudely, one expects this to
     scale as $$\mathrm{ESS}(L=8) = \mathrm{ESS}(L=4)^{2 \times 2}$$. Does this
     hold in this case?
   * Using that scaling, what ESS for $L=4$ would be needed to ensure
     $$\mathrm{ESS}(L=64) \gtrsim 0.5$$?
+  * Extra: Insert HMC updates between each flow transformation. Careful: make sure to
+    compute the reweighting factors using the samples _before_ this update, and
+    use the correct target theory for the HMC steps. This is the method of
+    **stochastic normalizing flows**.
+
+## Learned flow for u1 variable
+More extra: Implement and train a flow over a _compact_ domain by learning the
+Von Mises distribution over a U(1) variable,
+$$p(\theta) = \frac{1}{2\pi I_0(\theta)} e^{\beta \cos{\theta}}$$.
+This should be very similar to the toy 2D example, but ensuring that the periodicity
+of $\theta$ is appropriately handled in the velocity network and integration.
