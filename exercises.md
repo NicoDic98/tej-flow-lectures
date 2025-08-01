@@ -22,7 +22,7 @@ for your own future exploration if you like.
 Using the HMC code we developed for the $\phi^4$ theory, explore critical
 slowing down and topological freezing quantitatively:
 
-  1. The _autocorrelation function_ for observable $O$ is defined by
+  1. The _autocorrelation function_ for observable $O$ with mean 0 is defined by
   $$\rho(\tau) = \frac{1}{N-\tau}\sum_{i-j = \tau} \frac{O^{(i)} O^{(j)}}{\langle O^2 \rangle}$$
    which measures the correlation between the observable at points in the Markov chain separated by MC time $\tau$, assuming an ensemble of size $N$.
 	 * Plot the autocorrelation function for the observable $\bar{\phi} = \frac{1}{V} \sum_x \phi_x$ at the broken and symmetric phase parameters we looked at. Confirm that for the broken phase the autocorrelation function decays to zero on a much longer timescale.
